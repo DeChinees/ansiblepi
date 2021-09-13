@@ -1,0 +1,32 @@
+---
+- name: Setup Raspberry Pi
+  hosts: raspberry
+
+  tasks:
+    - name: Apt Update
+      apt:
+        update_cache: yes
+      register: aptupdate  
+    # show the content of aptupdate var
+    - debug: var=aptupdate
+
+    - name: Apt Upgrade
+      apt:
+        name: "*"
+        state: latest
+      register: aptupgrade  
+    # show the content of aptupgrade var
+    - debug: var=aptupgrade
+
+    - name: Ensure Python 3 is default
+      apt:
+        name: python-is-python3
+        state: present
+
+    - name: Remove useless packages and dependencies
+      apt:   
+        autoclean: yes
+        autoremove: yes
+      register: aptclean  
+    # show the content of aptout var
+    - debug: var=aptclean

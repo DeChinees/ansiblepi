@@ -1,0 +1,7 @@
+[raspberry]
+raspberrypi ansible_host=192.168.178.116
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=pi
+ansible_ssh_pass=raspberry

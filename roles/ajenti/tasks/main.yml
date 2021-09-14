@@ -1,0 +1,30 @@
+---
+- name: Install
+  pip:
+    name:
+      - setuptools
+      - pip
+      - wheel
+    extra_args: --user
+
+- name: Install Ajenti
+  pip:
+    name:
+      - ajenti-panel
+      - ajenti.plugin.ace
+      - ajenti.plugin.augeas
+      - ajenti.plugin.auth-users
+      - ajenti.plugin.core
+      - ajenti.plugin.dashboard
+      - ajenti.plugin.datetime
+      - ajenti.plugin.filemanager
+      - ajenti.plugin.filesystem
+      - ajenti.plugin.network
+      - ajenti.plugin.notepad
+      - ajenti.plugin.packages
+      - ajenti.plugin.passwd
+      - ajenti.plugin.plugins
+      - ajenti.plugin.power
+      - ajenti.plugin.services
+      - ajenti.plugin.settings
+      - ajenti.plugin.terminal

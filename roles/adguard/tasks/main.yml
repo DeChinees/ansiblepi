@@ -1,0 +1,6 @@
+---
+- name: Download Install script
+  command: 'wget https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh'
+
+- name: Install
+  command: 'sh -s install.sh -v'

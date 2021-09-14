@@ -1,0 +1,11 @@
+---
+- name: Apt Update
+  apt: update_cache=yes
+
+- name: Apt Upgrade
+  apt: name="*" state=latest
+
+- name: Remove useless packages and dependencies
+  apt:
+    autoclean=yes
+    autoremove=yes

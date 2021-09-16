@@ -5,4 +5,5 @@
   roles:
     #- apt-update
     #- ajenti
-    - adguard
+    #- adguard
+    - rpi_lcd

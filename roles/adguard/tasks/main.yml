@@ -1,6 +1,10 @@
 ---
 - name: Download Install script
-  command: 'wget https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh'
+  get_url:
+    url: https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh
+    dest: ./install.sh
+    mode: '0744'
 
 - name: Install
-  command: 'sh -s install.sh -v'
+  ansible.builtin.command:
+    cmd: ./install.sh -v

@@ -1,0 +1,23 @@
+---
+
+- name: Set console font
+  ansible.builtin.lineinfile:
+    path: /boot/cmdline.txt
+    regexp: 'ProFont6x11'
+    line: VGA8x8
+
+- name: Set font face to Terminus
+  ansible.builtin.lineinfile:
+    path: /etc/default/console-setup
+    regexp: '^FONTFACE="'
+    line: FONTFACE="Terminus"
+
+- name: Set font size
+  ansible.builtin.lineinfile:
+    path: /etc/default/console-setup
+    regexp: '^FONTSIZE="'
+    line: FONTSIZE="6x12"
+
+- name: Restart console
+  ansible.builtin.command:
+    cmd: sudo /etc/init.d/console-setup.sh restart

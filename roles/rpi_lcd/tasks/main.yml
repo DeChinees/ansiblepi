@@ -1,0 +1,8 @@
+---
+- name: Install GIT
+  apt:
+    name: git
+    state: present
+
+#- include_tasks: rpi_lcd.yml
+- include_tasks: set_console_size.yml

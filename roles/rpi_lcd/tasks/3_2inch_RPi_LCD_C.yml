@@ -1,10 +1,17 @@
 ---
+- name: Install xserver-xorg-input-evdev & cmake
+  apt:
+    pkg:
+      - xserver-xorg-input-evdev
+      - cmake
+    state: present
+
 - name: Git Clone RPI_LCD scripts
   ansible.builtin.git:
     repo: https://github.com/waveshare/LCD-show.git
     dest: LCD-show
     version: master
-    force: yes
+    force: true
 
 - name: Change file ownership, group and permissions
   ansible.builtin.file:
@@ -19,7 +26,9 @@
 
 - name: Enable LCD
   ansible.builtin.command:
-    cmd: sudo LCD-show/LCD32C-show
+    cmd: sudo ./LCD32C-show
+  args:
+    chdir: LCD-show
 
 - name: Reboot host and wait for it to restart
   reboot:
@@ -32,7 +41,15 @@
 
 - name: Rotate LCD 180
   ansible.builtin.command:
-    cmd: sudo LCD-show/LCD32C-show 180
+    cmd: sudo ./LCD32C-show 180
+  args:
+    chdir: LCD-show
+
+- name: Set console font to VGA8x8
+  ansible.builtin.replace:
+    path: /boot/cmdline.txt
+    regexp: "ProFont6x11"
+    replace: "VGA8x8"
 
 - name: Reboot host and wait for it to restart
   reboot:

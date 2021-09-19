@@ -14,7 +14,9 @@
   when: APT_UPDATE|upper == "YES"
 
 # default packages
-- name: Install GIT
+- name: Install additional packages
   apt:
-    name: git
+    pkg:
+      - git
+      - python3-gpiozero
     state: present

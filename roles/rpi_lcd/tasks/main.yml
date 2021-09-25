@@ -26,4 +26,5 @@
 - name: Make sure buttons service unit is running
   ansible.builtin.systemd:
     state: started
+    enabled: true
     name: buttons

@@ -1,5 +1,29 @@
 ---
-
 - include_tasks: 3_2inch_RPi_LCD_C.yml
   when: RPi_LCD_C|upper == "YES"
 - include_tasks: set_console_size.yml
+
+- name: Copy button service
+  ansible.builtin.copy:
+    src: buttons.service
+    dest: /etc/systemd/system/buttons.service
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Copy button script
+  ansible.builtin.copy:
+    src: buttons.py
+    dest: /usr/local/src/buttons.py
+    owner: root
+    group: root
+    mode: '0744'
+
+- name: Just force systemd to reread configs (2.4 and above)
+  ansible.builtin.systemd:
+    daemon_reload: true
+
+- name: Make sure buttons service unit is running
+  ansible.builtin.systemd:
+    state: started
+    name: buttons

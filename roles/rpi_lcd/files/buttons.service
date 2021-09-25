@@ -1,0 +1,9 @@
+[Unit]
+Description=Service for buttons for Waveshare RPI LCD-C 320x240
+After=multi-user.target
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /usr/local/src/buttons.py
+[Install]
+WantedBy=multi-user.target

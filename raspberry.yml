@@ -1,5 +1,4 @@
 ---
-
 - name: Setup Raspberry Pi
   hosts: raspberry
 
@@ -12,6 +11,7 @@
       private: false
 
   roles:
+    - common
     - apt-update
     #- ajenti
     #- adguard

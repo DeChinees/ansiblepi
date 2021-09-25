@@ -1,19 +1,15 @@
+import os
 import subprocess
 from gpiozero import Button
 
-button1 = Button(18)
 button2 = Button(23)
 button3 = Button(24)
 
-reboot_statement = "sudo shutdown -r -f now"
-shutdown_statement = "sudo shutdown -h"
-
-held_for = 0.0
+reboot_statement = 'logger "System reboot initiatied by button press"; sudo reboot'
+shutdown_statement = 'logger "System shutdown initiated by button press"; sudo shutdown -h'
 
 while True:
-    if button1.is_pressed:
-        print('button 1 pressed.')
     if button2.is_pressed:
-        print(f'button 2 pressed')
+        os.system(reboot_statement)
     if button3.is_pressed:
-        print('button 3 pressed.')
+        os.system(shutdown_statement)

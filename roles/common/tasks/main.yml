@@ -1,0 +1,10 @@
+---
+- name: Set a hostname
+  ansible.builtin.hostname:
+    name: raspberry
+
+- name: Change hostname in etc/hosts
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: '127.0.0.1       localhost'
+    line: '127.0.0.1       localhost raspberry'

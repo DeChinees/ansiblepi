@@ -9,10 +9,13 @@
     - name: "RPi_LCD_C"
       prompt: "3_2inch_RPi_LCD_C (default=no)?"
       private: false
+    - name: "ADGUARD"
+      prompt: "Install Adguard Home (default=no)?"
+      private: false
+    - name: "AJENTI"
+      prompt: "Install Ajenti Server Admin Panel (default=no)?"
+      private: false
+
 
   roles:
     - common
-    - apt-update
-    #- ajenti
-    #- adguard
-    - rpi_lcd

@@ -7,4 +7,32 @@
   ansible.builtin.lineinfile:
     path: /etc/hosts
     regexp: '127.0.0.1       localhost'
-    line: '127.0.0.1       localhost raspberry'
+    line: '127.0.0.1       localhost raspberrypi'
+
+# default packages
+- name: Install default packages
+  apt:
+    pkg:
+      - git
+      - python3-gpiozero
+    state: present
+
+- name: Update packages
+  import_role:
+    name: apt-update
+  when: APT_UPDATE|upper == "YES"
+
+- name: Setup 3_2inch_RPi_LCD_C
+  import_role:
+    name: rpi_lcd_c
+  when: RPi_LCD_C|upper == "YES"
+
+- name: Install Ajenti Server Admin Panel
+  import_role:
+    name: ajenti
+  when: AJENTI|upper == "YES"
+
+- name: Install Adguard Home
+  import_role:
+    name: adguard
+  when: ADGUARD|upper == "YES"

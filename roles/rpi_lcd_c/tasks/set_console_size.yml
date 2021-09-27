@@ -4,14 +4,12 @@
     path: /boot/config.txt
     regexp: '#framebuffer_width='
     line: framebuffer_width=320
-  when: RPi_LCD_C|upper == "YES"
 
 - name: Set framebuffer_height
   ansible.builtin.lineinfile:
     path: /boot/config.txt
     regexp: '#framebuffer_height='
     line: framebuffer_height=240
-  when: RPi_LCD_C|upper == "YES"
 
 - name: Set font face to Terminus
   ansible.builtin.lineinfile:

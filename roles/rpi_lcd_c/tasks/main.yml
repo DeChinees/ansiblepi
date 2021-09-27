@@ -1,6 +1,5 @@
 ---
 - include_tasks: 3_2inch_RPi_LCD_C.yml
-  when: RPi_LCD_C|upper == "YES"
 - include_tasks: set_console_size.yml
 
 - name: Copy button service

@@ -6,6 +6,10 @@ This playbook will provision your Raspberry Pi.
 - if you are using user name password, u need to install: sudo apt install sshpass in your local machine
 - fill out wpa_supplicant.conf with your SIDD and PSK.
 
+
+## Pin Layout
+![GPIO pin layout](https://cdn.mos.cms.futurecdn.net/kSo96fYwdrfQKSvALMKqzc.png)
+
 #
 
 https://github.com/AdguardTeam/AdGuardHome  

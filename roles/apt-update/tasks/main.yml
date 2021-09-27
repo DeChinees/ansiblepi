@@ -1,22 +1,18 @@
 ---
 - name: Apt Update
   apt: update_cache=yes
-  when: APT_UPDATE|upper == "YES"
 
 - name: Apt Upgrade
   apt: name="*" state=present
-  when: APT_UPDATE|upper == "YES"
 
 - name: Remove useless packages and dependencies
   apt:
     autoclean=yes
     autoremove=yes
-  when: APT_UPDATE|upper == "YES"
 
 # default packages
 - name: Install additional packages
   apt:
     pkg:
-      - git
       - python3-gpiozero
     state: present

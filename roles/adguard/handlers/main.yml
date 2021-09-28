@@ -1,0 +1,21 @@
+---
+#- name: restart adguard
+#  service:
+#    name: adguard
+#    state: restarted
+
+#- name: stop adguard
+#  service:
+#    name: adguard
+#    state: stop
+
+#- name: reload adguard
+#  service: 
+#     name: adguard 
+#     state: reloaded
+
+#- name: restart adguard
+#  service: 
+#     name: adguard 
+#     state: restarted 
+#     enabled: true
